@@ -2681,7 +2681,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mInitHeifWriter = createHEIFEncoder(tmpPath, mPictureSize.getWidth(),
                         mPictureSize.getHeight(), 0,1, 85);
             }
+
+            if (cameraIdList.length > MAX_NUM_CAM)
+                Log.w(TAG, "Number of available cameras (" + cameraIdList.length + ") exceeds "
+                        + "max supported cameras (" + MAX_NUM_CAM + ")");
+
             for (int i = 0; i < cameraIdList.length; i++) {
+                if (i >= MAX_NUM_CAM) {
+                    Log.w(TAG, "Skipping set up for camera with id " + i);
+                    break;
+                }
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
