@@ -3836,7 +3836,6 @@ public class PhotoModule
                     }
                 });
                 mParameters.setSceneMode("asd");
-                mCameraDevice.setMetadataCb(mMetaDataCallback);
                 mParameters.set("auto-hdr-enable", "enable");
             }
             else {
@@ -3848,7 +3847,6 @@ public class PhotoModule
                         }
                     }
                 });
-                mCameraDevice.setMetadataCb(null);
                 mParameters.set("auto-hdr-enable", "disable");
             }
         }
