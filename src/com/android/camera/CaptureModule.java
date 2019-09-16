@@ -2361,12 +2361,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    public void doShutterAnimation() {
-        if (mUI != null) {
-            mUI.doShutterAnimation();
-        }
-    }
-
     private CameraCaptureSession.CaptureCallback mLongshotCallBack= new CameraCaptureSession.CaptureCallback() {
             @Override
             public void onCaptureCompleted(CameraCaptureSession session,
